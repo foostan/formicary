@@ -1,29 +1,4 @@
 {
-    "connection": {
-        "connections": [
-            {
-                "group": "group1",
-                "scripts" : [
-                    {
-                        "id": "script1",
-                        "cmd": "/path/to/script/script1"
-                    },
-                    {
-                        "id": "script2",
-                        "cmd": "/path/to/script/script2"
-                    },
-                    {
-                        "id": "script3",
-                        "cmd": "/path/to/script/script3"
-                    },
-                    {
-                        "id": "script4",
-                        "cmd": "/path/to/script/script4"
-                    }
-                ]
-            }
-        ]
-    },
     "node": {
         "ssh-name": "root",
         "ssh-password": "password",
@@ -59,21 +34,35 @@
         "static-node-groups": [
             {
                 "id": "group1",
-                "nodes": [
+                "node-ids": [
                     "node1", "node2"
                 ]
             },
             {
                 "id": "group2",
-                "nodes": [
+                "node-ids": [
                     "node3", "node4"
                 ]
             },
             {
                 "id": "group3",
-                "nodes": [
+                "node-ids": [
                     "node1", "node3", "node5"
                 ]
+            }
+        ]
+    },
+    "connection": {
+        "script-connections": [
+            {
+                "id": "connection1",
+                "target-group-ids": ["group1", "group2", "group3"],
+                "script-paths": ["/path/to/script/script2"]
+            },
+            {
+                "id": "connection2",
+                "target-group-ids": ["group4", "group5"],
+                "script-paths": ["/path/to/script/script2"]
             }
         ]
     }
