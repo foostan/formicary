@@ -1,0 +1,80 @@
+{
+    "connection": {
+        "connections": [
+            {
+                "group": "group1",
+                "scripts" : [
+                    {
+                        "id": "script1",
+                        "cmd": "/path/to/script/script1"
+                    },
+                    {
+                        "id": "script2",
+                        "cmd": "/path/to/script/script2"
+                    },
+                    {
+                        "id": "script3",
+                        "cmd": "/path/to/script/script3"
+                    },
+                    {
+                        "id": "script4",
+                        "cmd": "/path/to/script/script4"
+                    }
+                ]
+            }
+        ]
+    },
+    "node": {
+        "ssh-name": "root",
+        "ssh-password": "password",
+        "static-nodes": [
+            {
+                "id": "node1",
+                "hostname": "node1",
+                "port": 22
+            },
+            {
+                "id": "node2",
+                "hostname": "node2",
+                "port": 22
+            },
+            {
+                "id": "node3",
+                "hostname": "node3",
+                "port": 22
+            },
+            {
+                "id": "node4",
+                "hostname": "node4",
+                "port": 22
+            },
+            {
+                "id": "node5",
+                "hostname": "node5",
+                "port": 22
+            }
+        ]
+    },
+    "node-group": {
+        "static-node-groups": [
+            {
+                "id": "group1",
+                "nodes": [
+                    "node1", "node2"
+                ]
+            },
+            {
+                "id": "group2",
+                "nodes": [
+                    "node3", "node4"
+                ]
+            },
+            {
+                "id": "group3",
+                "nodes": [
+                    "node1", "node3", "node5"
+                ]
+            }
+        ]
+    }
+}
