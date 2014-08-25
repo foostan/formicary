@@ -8,11 +8,11 @@ import (
 
 var Commands = []cli.Command{
 	cli.Command{
-		Name:        "agent",
+		Name:        "ant",
 		Usage:       "",
 		Description: "",
-		Flags:       command.AgentFlags,
-		Action:      command.AgentCommand,
+		Flags:       command.AntFlags,
+		Action:      command.AntCommand,
 	},
 	cli.Command{
 		Name:        "graph",
