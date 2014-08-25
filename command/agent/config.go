@@ -1,10 +1,9 @@
-package main
+package agent
 
 import (
 	"encoding/json"
 	"fmt"
 	"io"
-	"log"
 	"os"
 	"path/filepath"
 	"sort"
@@ -12,20 +11,6 @@ import (
 
 	"github.com/mitchellh/mapstructure"
 )
-
-func main() {
-	paths := []string{"config"}
-	conf, err := ReadConfigPaths(paths)
-	if err != nil {
-		log.Fatalf("Error reading '%s': %s", paths, err)
-	}
-
-	conf = MergeConfig(DefaultConfig(), conf)
-
-	fmt.Println(conf.Node)
-	fmt.Println(conf.NodeGroup)
-	fmt.Println(conf.Connection)
-}
 
 type Config struct {
 	Node       NodeConfig       `mapstructure:"node"`
