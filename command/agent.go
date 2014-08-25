@@ -10,20 +10,19 @@ import (
 
 var AgentFlags = []cli.Flag{
 	cli.StringFlag{
-		Name:  "test",
-		Usage: "",
+		Name:  "config-dir",
+		Usage: "directory of configuration files to load",
 	},
 }
 
 func AgentCommand(c *cli.Context) {
-	fmt.Println("Run agent command with test: ", c.String("test"))
-
-	paths := []string{"config"}
+	paths := []string{c.String("config-dir")}
 	config, err := agent.ReadConfigPaths(paths)
 	if err != nil {
 		log.Fatalf("Error reading '%s': %s", paths, err)
 	}
-	config = MergeConfig(DefaultConfig(), config)
+	config = agent.MergeConfig(agent.DefaultConfig(), config)
+
 	fmt.Println(config.Node)
 	fmt.Println(config.NodeGroup)
 	fmt.Println(config.Connection)
